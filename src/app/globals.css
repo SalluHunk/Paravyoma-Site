@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 0 0% 100%;            /* #FFFFFF */
+    --foreground: 220 39% 11%;          /* #111827 text */
+    --surface: 210 40% 98%;            /* #F8FAFC */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 39% 11%;
+
+    /* Brand navy / slate */
+    --primary: 222 47% 11%;            /* #0F172A */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;          /* #1E293B */
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent blue */
+    --brand: 221 83% 53%;              /* #2563EB */
+    --brand-foreground: 0 0% 100%;
+
+    /* Neutral helpers */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;   /* slate-500 */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;             /* slate-200 */
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Consistent, accessible focus rings */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  ::selection {
+    background-color: hsl(var(--brand) / 0.16);
+    color: hsl(var(--primary));
+  }
+
+  /* Section anchor offset for sticky header */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer components {
+  /* Eyebrow / kicker label used above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand;
+  }
+
+  /* Subtle text gradient for emphatic display words */
+  .text-gradient {
+    @apply bg-gradient-to-br from-primary via-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Hairline divider that fades at the edges */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--border)),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
