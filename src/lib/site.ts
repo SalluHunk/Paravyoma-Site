@@ -14,7 +14,7 @@ export const siteConfig = {
     { label: "Solutions", href: "/#solutions" },
     { label: "Why Paravyoma", href: "/#why" },
     { label: "Process", href: "/#process" },
-    { label: "Industries", href: "/#industries" },
+    { label: "Industries", href: "/industries" },
   ],
   footerNav: {
     company: [

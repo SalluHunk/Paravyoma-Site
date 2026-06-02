@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 
 import "./globals.css";
@@ -7,12 +6,6 @@ import { siteConfig } from "@/lib/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { StructuredData } from "@/components/shared/structured-data";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#0F172A",
@@ -74,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${GeistSans.variable}`}
+      className={GeistSans.variable}
       suppressHydrationWarning
     >
       <body className="min-h-dvh bg-background font-sans">
