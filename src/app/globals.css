@@ -4,6 +4,9 @@
 
 @layer base {
   :root {
+    /* Font variable — resolved at build time without network */
+    --font-inter: ui-sans-serif, system-ui, sans-serif;
+
     /* Surfaces */
     --background: 0 0% 100%;            /* #FFFFFF */
     --foreground: 220 39% 11%;          /* #111827 text */
