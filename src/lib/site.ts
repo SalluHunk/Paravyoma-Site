@@ -27,9 +27,10 @@ export const siteConfig = {
       { label: "Contact", href: "/#contact" },
     ],
     services: [
+      { label: "AI Automation", href: "/ai-automation" },
+      { label: "Temple Solutions", href: "/temple-solutions" },
       { label: "Operational Efficiency", href: "/solutions#operational-efficiency" },
       { label: "Workflow Automation", href: "/solutions#workflow-automation" },
-      { label: "Customer Engagement", href: "/solutions#customer-engagement" },
       { label: "Digital Transformation", href: "/solutions#digital-transformation" },
     ],
   },
