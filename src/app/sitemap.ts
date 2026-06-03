@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getAllSlugs } from "@/lib/case-studies";
+import { getAllArticleSlugs } from "@/lib/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const insightSlugs = getAllArticleSlugs().map((slug) => ({
+    url: `${siteConfig.url}/insights/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   const caseStudySlugs = getAllSlugs().map((slug) => ({
     url: `${siteConfig.url}/case-studies/${slug}`,
     lastModified: new Date(),
@@ -67,11 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...caseStudySlugs,
     {
-      url: `${siteConfig.url}/resources/insights`,
+      url: `${siteConfig.url}/insights`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.85,
     },
+    ...insightSlugs,
     {
       url: `${siteConfig.url}/resources/guides`,
       lastModified: new Date(),
