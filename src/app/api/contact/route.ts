@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, fallback: true });
   }
 
-  const subject = `Inquiry/Support — ${inquiryType || "General"}`;
+  const subject = inquiryType || "General Inquiry";
 
   const payload = {
     subject,

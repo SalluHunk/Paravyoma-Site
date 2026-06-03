@@ -14,7 +14,8 @@ export type InquiryType =
   | "General"
   | "Schedule Consultation"
   | "Project Inquiry"
-  | "Partnership Inquiry";
+  | "Partnership Inquiry"
+  | "Support Ticket";
 
 interface ContactFormProps {
   /** Controlled inquiry type — set from the inquiry-type cards */
@@ -113,7 +114,7 @@ export function ContactForm({
   }
 
   function openMailto() {
-    const subject = encodeURIComponent(`Inquiry/Support — ${inquiry || "General"}`);
+    const subject = encodeURIComponent(inquiry || "General Inquiry");
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${emailVal}\nOrganisation: ${org || "—"}\nInquiry type: ${inquiry || "General"}\n\n${message}`
     );
@@ -209,6 +210,7 @@ export function ContactForm({
           <option value="Schedule Consultation">Schedule Consultation</option>
           <option value="Project Inquiry">Project Inquiry</option>
           <option value="Partnership Inquiry">Partnership Inquiry</option>
+          <option value="Support Ticket">Support Ticket</option>
         </Select>
       </Field>
 
