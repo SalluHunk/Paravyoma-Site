@@ -12,14 +12,15 @@ export const siteConfig = {
   email: "info@paravyomatech.com",
   nav: [
     { label: "Solutions", href: "/solutions" },
+    { label: "Temple Solutions", href: "/temple-solutions" },
     { label: "Why Paravyoma", href: "/#why" },
-    { label: "Process", href: "/#process" },
     { label: "Industries", href: "/#industries" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
   footerNav: {
     company: [
+      { label: "Temple Solutions", href: "/temple-solutions" },
       { label: "Why Paravyoma", href: "/#why" },
       { label: "Process", href: "/#process" },
       { label: "Industries", href: "/#industries" },
