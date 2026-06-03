@@ -30,7 +30,7 @@ export const siteConfig = {
       label: "Resources",
       href: "/resources",
       children: [
-        { label: "Case Studies", href: "/resources/case-studies" },
+        { label: "Case Studies", href: "/case-studies" },
         { label: "Insights Blog", href: "/resources/insights" },
         { label: "Guides", href: "/resources/guides" },
         { label: "Downloads", href: "/resources/downloads" },
@@ -48,7 +48,7 @@ export const siteConfig = {
       { label: "Custom Applications", href: "/custom-applications" },
     ],
     resources: [
-      { label: "Case Studies", href: "/resources/case-studies" },
+      { label: "Case Studies", href: "/case-studies" },
       { label: "Insights Blog", href: "/resources/insights" },
       { label: "Guides", href: "/resources/guides" },
       { label: "Downloads", href: "/resources/downloads" },
