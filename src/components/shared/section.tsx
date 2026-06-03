@@ -29,7 +29,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "scroll-mt-24 py-20 lg:py-28",
+        "scroll-mt-24 py-20 transition-colors duration-300 lg:py-28",
         surface && "bg-surface",
         className
       )}

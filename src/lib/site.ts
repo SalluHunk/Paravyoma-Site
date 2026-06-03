@@ -9,7 +9,7 @@ export const siteConfig = {
   tagline: "AI-assisted execution. Human-led strategy.",
   description:
     "Paravyoma Technologies is a solutions and technology partner that helps organizations streamline operations, automate workflows, and build scalable systems for sustainable growth. We sell business outcomes — not websites or apps.",
-  email: "hello@paravyoma.com",
+  email: "paravyomatech@gmail.com",
   nav: [
     { label: "Solutions", href: "/#solutions" },
     { label: "Why Paravyoma", href: "/#why" },

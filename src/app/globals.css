@@ -37,6 +37,43 @@
     --ring: 221 83% 53%;
 
     --radius: 0.75rem;
+
+    color-scheme: light;
+  }
+
+  .dark {
+    /* Surfaces */
+    --background: 229 84% 5%;           /* #020617 */
+    --foreground: 210 40% 98%;          /* #F8FAFC text */
+    --surface: 222 47% 8%;             /* slightly above background */
+
+    --card: 222 47% 11%;               /* #0F172A */
+    --card-foreground: 210 40% 98%;
+
+    /* Brand navy stays the dark-panel base in both themes */
+    --primary: 222 47% 11%;            /* #0F172A */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;          /* #1E293B */
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent blue — brighter for dark backgrounds */
+    --brand: 217 91% 60%;              /* #3B82F6 */
+    --brand-foreground: 0 0% 100%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;   /* slate-400, AA on #020617 */
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;             /* #1E293B */
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+
+    color-scheme: dark;
   }
 }
 
@@ -57,6 +94,16 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Smooth theme transition on the dominant surfaces. Scoped to avoid
+     overriding component-level transitions (transform / opacity). */
+  @media (prefers-reduced-motion: no-preference) {
+    body {
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+  }
+
   /* Respect users who prefer reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -75,8 +122,8 @@
   }
 
   ::selection {
-    background-color: hsl(var(--brand) / 0.16);
-    color: hsl(var(--primary));
+    background-color: hsl(var(--brand) / 0.18);
+    color: hsl(var(--foreground));
   }
 
   /* Section anchor offset for sticky header */
@@ -91,9 +138,10 @@
     @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand;
   }
 
-  /* Subtle text gradient for emphatic display words */
+  /* Subtle text gradient for emphatic display words — theme-aware so it
+     stays legible in both light and dark. */
   .text-gradient {
-    @apply bg-gradient-to-br from-primary via-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent;
   }
 
   /* Hairline divider that fades at the edges */

@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { StructuredData } from "@/components/shared/structured-data";
@@ -15,7 +16,10 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -78,16 +82,23 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-dvh bg-background font-sans">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange={false}
         >
-          Skip to content
-        </a>
-        <StructuredData />
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+          >
+            Skip to content
+          </a>
+          <StructuredData />
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

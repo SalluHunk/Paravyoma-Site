@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -47,10 +48,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav
-          className="hidden items-center gap-1 md:flex"
-          aria-label="Primary"
-        >
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
@@ -62,25 +60,26 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/#contact">Talk to us</Link>
-          </Button>
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Button asChild size="sm">
             <Link href="/#contact">Book a consultation</Link>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="inline-flex size-10 items-center justify-center rounded-lg text-foreground md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        {/* Mobile actions */}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex size-10 items-center justify-center rounded-lg text-foreground"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
