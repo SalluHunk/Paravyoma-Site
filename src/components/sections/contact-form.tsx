@@ -20,6 +20,7 @@ interface ContactFormProps {
   /** Controlled inquiry type — set from the inquiry-type cards */
   inquiryType?: InquiryType;
   onInquiryTypeChange?: (type: InquiryType) => void;
+  /** Fallback email address used if the API route returns fallback:true */
   email: string;
 }
 
@@ -69,21 +70,54 @@ export function ContactForm({
     onInquiryTypeChange?.(val);
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = React.useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const errs = validate({ name, email: emailVal, message });
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
-    // TODO: wire to backend (e.g. API route, Resend, or Supabase Edge Function)
-    const subject = encodeURIComponent(
-      `[${inquiry || "General"}] Enquiry from ${name}`
-    );
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email: emailVal,
+          organisation: org,
+          inquiryType: inquiry,
+          message,
+        }),
+      });
+
+      const data = (await res.json()) as { ok?: boolean; fallback?: boolean; error?: string };
+
+      if (!res.ok || data.error) {
+        // Server-side error — fall back to mailto so no enquiry is lost
+        openMailto();
+      } else if (data.fallback) {
+        // No webhook configured yet — open mailto
+        openMailto();
+      }
+
+      setSubmitted(true);
+    } catch {
+      // Network error — open mailto so no enquiry is lost
+      openMailto();
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  function openMailto() {
+    const subject = encodeURIComponent(`Inquiry/Support — ${inquiry || "General"}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${emailVal}\nOrganisation: ${org || "—"}\nInquiry type: ${inquiry || "General"}\n\n${message}`
     );
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    window.open(`mailto:${email}?subject=${subject}&body=${body}`, "_blank");
   }
 
   if (submitted) {
@@ -193,8 +227,8 @@ export function ContactForm({
         ) : null}
       </Field>
 
-      <Button type="submit" variant="brand" size="lg" className="w-full">
-        Send message
+      <Button type="submit" variant="brand" size="lg" className="w-full" disabled={submitting}>
+        {submitting ? "Sending…" : "Send message"}
       </Button>
     </form>
   );
