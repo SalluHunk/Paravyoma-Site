@@ -11,27 +11,54 @@ export const siteConfig = {
     "Paravyoma Technologies is a solutions and technology partner that helps organizations streamline operations, automate workflows, and build scalable systems for sustainable growth. We sell business outcomes — not websites or apps.",
   email: "info@paravyomatech.com",
   nav: [
-    { label: "Solutions", href: "/solutions" },
-    { label: "Temple Solutions", href: "/temple-solutions" },
-    { label: "Why Paravyoma", href: "/#why" },
+    { label: "Home", href: "/" },
+    {
+      label: "Solutions",
+      href: "/solutions",
+      children: [
+        { label: "AI Automation", href: "/ai-automation" },
+        { label: "Digital Transformation", href: "/digital-transformation" },
+        { label: "CRM & Workflow Systems", href: "/crm-workflow-systems" },
+        { label: "Temple Solutions", href: "/temple-solutions" },
+        { label: "Custom Applications", href: "/custom-applications" },
+      ],
+    },
     { label: "Industries", href: "/#industries" },
+    { label: "Why Paravyoma", href: "/#why" },
     { label: "About", href: "/about" },
+    {
+      label: "Resources",
+      href: "/resources",
+      children: [
+        { label: "Case Studies", href: "/resources/case-studies" },
+        { label: "Insights Blog", href: "/resources/insights" },
+        { label: "Guides", href: "/resources/guides" },
+        { label: "Downloads", href: "/resources/downloads" },
+        { label: "FAQ", href: "/resources/faq" },
+      ],
+    },
     { label: "Contact", href: "/contact" },
   ],
   footerNav: {
-    company: [
-      { label: "Temple Solutions", href: "/temple-solutions" },
-      { label: "Why Paravyoma", href: "/#why" },
-      { label: "Process", href: "/#process" },
-      { label: "Industries", href: "/#industries" },
-      { label: "Contact", href: "/#contact" },
-    ],
-    services: [
+    solutions: [
       { label: "AI Automation", href: "/ai-automation" },
+      { label: "Digital Transformation", href: "/digital-transformation" },
+      { label: "CRM & Workflow Systems", href: "/crm-workflow-systems" },
       { label: "Temple Solutions", href: "/temple-solutions" },
-      { label: "Operational Efficiency", href: "/solutions#operational-efficiency" },
-      { label: "Workflow Automation", href: "/solutions#workflow-automation" },
-      { label: "Digital Transformation", href: "/solutions#digital-transformation" },
+      { label: "Custom Applications", href: "/custom-applications" },
+    ],
+    resources: [
+      { label: "Case Studies", href: "/resources/case-studies" },
+      { label: "Insights Blog", href: "/resources/insights" },
+      { label: "Guides", href: "/resources/guides" },
+      { label: "Downloads", href: "/resources/downloads" },
+      { label: "FAQ", href: "/resources/faq" },
+    ],
+    company: [
+      { label: "Why Paravyoma", href: "/#why" },
+      { label: "Industries", href: "/#industries" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 } as const;

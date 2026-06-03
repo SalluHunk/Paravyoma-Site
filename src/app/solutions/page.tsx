@@ -1,14 +1,62 @@
 import type { Metadata } from "next";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  Cpu,
+  Workflow,
+  Network,
+  Landmark,
+  Blocks,
+} from "lucide-react";
 import Link from "next/link";
 
 import { siteConfig } from "@/lib/site";
 import { solutions } from "@/lib/solutions";
 import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
+import { SectionHeading } from "@/components/shared/section-heading";
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { ContactCta } from "@/components/sections/contact-cta";
+
+// ── Solution areas (Level 2 hub) ──────────────────────────────────────────────
+const solutionAreas = [
+  {
+    icon: Cpu,
+    name: "AI Automation",
+    description:
+      "Practical, human-led automation that removes repetitive work and frees your team for higher-value tasks.",
+    href: "/ai-automation",
+  },
+  {
+    icon: Workflow,
+    name: "Digital Transformation",
+    description:
+      "Move from manual, disconnected processes to connected systems and a single source of truth.",
+    href: "/digital-transformation",
+  },
+  {
+    icon: Network,
+    name: "CRM & Workflow Systems",
+    description:
+      "Customer and operational workflows that capture every lead, track every step and scale with you.",
+    href: "/crm-workflow-systems",
+  },
+  {
+    icon: Landmark,
+    name: "Temple Solutions",
+    description:
+      "Purpose-built technology for temples and spiritual organizations — designed around how you serve.",
+    href: "/temple-solutions",
+  },
+  {
+    icon: Blocks,
+    name: "Custom Applications",
+    description:
+      "Bespoke software built around your exact process when off-the-shelf tools fall short.",
+    href: "/custom-applications",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -31,6 +79,47 @@ export default function SolutionsPage() {
         title="Outcomes, not deliverables"
         description="Every engagement starts with a business problem — not a technology choice. Here is how we help organisations move from where they are to where they need to be."
       />
+
+      {/* Solution areas — Level 2 hub */}
+      <Section id="solution-areas" surface>
+        <Container>
+          <SectionHeading
+            eyebrow="Explore by capability"
+            title="Five ways we help you grow."
+            description="Each area is a focused practice with its own approach and outcomes. Start where the need is sharpest — they connect cleanly as you scale."
+            align="center"
+            className="mx-auto"
+          />
+
+          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-card sm:grid-cols-2 lg:grid-cols-3">
+            {solutionAreas.map((area, i) => (
+              <Reveal key={area.name} delay={(i % 3) * 80}>
+                <Link
+                  href={area.href}
+                  className="group flex h-full flex-col bg-card p-7 transition-colors hover:bg-brand/[0.03] lg:p-8"
+                >
+                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
+                    <area.icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 font-display text-base font-semibold tracking-tight text-foreground">
+                    {area.name}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                    {area.description}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                    Explore
+                    <ArrowRight
+                      className="size-4 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       {/* Solution cards — one per outcome */}
       <Section id="solutions-list">
