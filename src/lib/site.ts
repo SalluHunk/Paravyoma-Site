@@ -16,6 +16,7 @@ export const siteConfig = {
     { label: "Process", href: "/#process" },
     { label: "Industries", href: "/#industries" },
     { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
   footerNav: {
     company: [
