@@ -281,16 +281,15 @@ export default function AboutPage() {
                   </p>
                 </blockquote>
                 <footer className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                  {/* Placeholder — replace with actual founder photo/name */}
                   <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand/10 text-lg font-semibold text-brand">
-                    P
+                    SG
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">
-                      [Founder Name] {/* TODO: Replace with actual name */}
+                      Siddharth Gaur
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Founder &amp; Principal, Paravyoma Technologies
+                      Founder &amp; CEO, Paravyoma Technologies
                     </p>
                   </div>
                 </footer>

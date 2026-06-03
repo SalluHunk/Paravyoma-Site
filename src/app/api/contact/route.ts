@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
   const payload = {
     subject,
-    to: process.env.CONTACT_EMAIL ?? "paravyomatech@gmail.com",
+    to: process.env.CONTACT_EMAIL ?? "info@paravyomatech.com",
     name,
     email,
     organisation: organisation || "",

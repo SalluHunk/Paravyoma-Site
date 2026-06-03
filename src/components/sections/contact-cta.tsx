@@ -40,10 +40,10 @@ export function ContactCta() {
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button asChild variant="brand" size="lg" className="w-full sm:w-auto">
-                  <a href={`mailto:${siteConfig.email}?subject=Consultation%20enquiry`}>
+                  <Link href="/contact?type=Schedule+Consultation">
                     <CalendarCheck className="size-4" />
                     Book a Consultation
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   asChild
@@ -60,7 +60,7 @@ export function ContactCta() {
               <p className="mt-6 text-sm text-primary-foreground/60">
                 Prefer to explore first?{" "}
                 <Link
-                  href="/#solutions"
+                  href="/solutions"
                   className="font-medium text-primary-foreground underline-offset-4 hover:underline"
                 >
                   See our solutions
