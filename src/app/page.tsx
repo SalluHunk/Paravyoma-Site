@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/hero";
 import { TrustBand } from "@/components/sections/trust-band";
 import { Services } from "@/components/sections/services";
 import { OutcomesComparison } from "@/components/sections/outcomes-comparison";
+import { Credibility } from "@/components/sections/credibility";
 import { Approach } from "@/components/sections/approach";
 import { SystemsFlow } from "@/components/sections/systems-flow";
 import { Process } from "@/components/sections/process";
@@ -19,15 +20,17 @@ export default function HomePage() {
       <Services />
       {/* 4 — Before / After: The difference technology makes */}
       <OutcomesComparison />
-      {/* 5 — Why Paravyoma */}
+      {/* 5 — Credibility: Stats + Why Clients Trust Paravyoma */}
+      <Credibility />
+      {/* 6 — Why Paravyoma */}
       <Approach />
-      {/* 6 — Business Systems Chain */}
+      {/* 7 — Business Systems Chain */}
       <SystemsFlow />
-      {/* 7 — Interactive Process (5-step) */}
+      {/* 8 — Interactive Process (5-step) */}
       <Process />
-      {/* 8 — Industries */}
+      {/* 9 — Industries */}
       <Industries />
-      {/* 9 — CTA  (10 — Footer rendered by root layout) */}
+      {/* 10 — CTA  (11 — Footer rendered by root layout) */}
       <ContactCta />
     </>
   );
