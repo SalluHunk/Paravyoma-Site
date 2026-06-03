@@ -1,7 +1,9 @@
 import { Hero } from "@/components/sections/hero";
 import { TrustBand } from "@/components/sections/trust-band";
 import { Services } from "@/components/sections/services";
+import { OutcomesComparison } from "@/components/sections/outcomes-comparison";
 import { Approach } from "@/components/sections/approach";
+import { SystemsFlow } from "@/components/sections/systems-flow";
 import { Process } from "@/components/sections/process";
 import { Industries } from "@/components/sections/industries";
 import { ContactCta } from "@/components/sections/contact-cta";
@@ -15,13 +17,17 @@ export default function HomePage() {
       <TrustBand />
       {/* 3 — Solutions Overview */}
       <Services />
-      {/* 4 — Why Paravyoma */}
+      {/* 4 — Before / After: The difference technology makes */}
+      <OutcomesComparison />
+      {/* 5 — Why Paravyoma */}
       <Approach />
-      {/* 5 — Process */}
+      {/* 6 — Business Systems Chain */}
+      <SystemsFlow />
+      {/* 7 — Interactive Process (5-step) */}
       <Process />
-      {/* 6 — Industries */}
+      {/* 8 — Industries */}
       <Industries />
-      {/* 7 — CTA  (8 — Footer is rendered by the root layout) */}
+      {/* 9 — CTA  (10 — Footer rendered by root layout) */}
       <ContactCta />
     </>
   );
