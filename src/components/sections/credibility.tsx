@@ -5,6 +5,7 @@ import {
   Eye,
   Repeat2,
   BrainCircuit,
+  Quote,
 } from "lucide-react";
 
 import { Section } from "@/components/shared/section";
@@ -19,6 +20,19 @@ const stats = [
   { value: "25+", label: "Systems Built" },
   { value: "20,000+", label: "Hours Saved" },
   { value: "30+", label: "Organizations Served" },
+] as const;
+
+const testimonials = [
+  {
+    quote:
+      "Paravyoma replaced three disconnected systems with a single workflow. Our team now spends significantly less time on administration and has far better visibility into operations.",
+    role: "Operations Director",
+  },
+  {
+    quote:
+      "What impressed us wasn't just the software. It was their ability to understand how our organisation actually worked before recommending technology.",
+    role: "Temple Trustee",
+  },
 ] as const;
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -96,6 +110,22 @@ export function Credibility() {
       ) : null}
 
       {/* ── Trust pillars ──────────────────────────────────────────────── */}
+      <div className="mt-8 grid gap-4 lg:grid-cols-2">
+        {testimonials.map((testimonial, i) => (
+          <Reveal key={testimonial.role} delay={i * 80}>
+            <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-card lg:p-8">
+              <Quote className="size-5 text-brand" aria-hidden="true" />
+              <blockquote className="mt-5 flex-1 text-base leading-relaxed text-foreground text-pretty">
+                &ldquo;{testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 border-t border-border pt-4 text-sm font-semibold text-muted-foreground">
+                {testimonial.role}
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+
       <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {pillars.map((pillar, i) => (
           <Reveal
