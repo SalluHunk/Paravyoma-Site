@@ -14,7 +14,12 @@ import { cn } from "@/lib/utils";
 
 // ── Update these as Paravyoma grows ─────────────────────────────────────────
 // Each entry: value (the displayed number/text) + label shown below it.
-const stats: ReadonlyArray<{ value: string; label: string }> = [];
+const stats = [
+  { value: "100+", label: "Projects Delivered" },
+  { value: "25+", label: "Systems Built" },
+  { value: "20,000+", label: "Hours Saved" },
+  { value: "30+", label: "Organizations Served" },
+] as const;
 // ────────────────────────────────────────────────────────────────────────────
 
 const pillars = [
