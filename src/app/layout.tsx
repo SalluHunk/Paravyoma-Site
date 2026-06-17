@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
@@ -98,6 +99,7 @@ export default function RootLayout({
           <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
