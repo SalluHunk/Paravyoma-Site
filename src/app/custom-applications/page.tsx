@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 import { PlaceholderPage } from "@/components/shared/placeholder-page";
+import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
+import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 
 export const metadata: Metadata = {
   title: "Custom Applications",
@@ -15,6 +18,60 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/custom-applications`,
   },
 };
+
+const customApplicationPreview = {
+  modules: [
+    "User Roles",
+    "Core Workflows",
+    "Data Model",
+    "Integrations",
+    "Admin Console",
+  ],
+  metrics: [
+    { label: "User roles", value: "5", change: "Scoped" },
+    { label: "Workflow paths", value: "12", change: "Mapped" },
+    { label: "Integrations", value: "4", change: "Planned" },
+    { label: "Release phases", value: "3", change: "Roadmap" },
+  ],
+  records: [
+    {
+      name: "Operations portal",
+      meta: "Role-based task queue, approvals and reporting",
+      status: "Blueprint",
+    },
+    {
+      name: "Customer portal",
+      meta: "Secure client access, documents and status tracking",
+      status: "Prototype",
+    },
+    {
+      name: "Admin console",
+      meta: "User management, audit history and configuration",
+      status: "Planned",
+    },
+  ],
+  workflow: [
+    {
+      label: "Process blueprint",
+      detail: "Real workflows are documented before interface design begins.",
+      tone: "done" as const,
+    },
+    {
+      label: "Prototype tested",
+      detail: "Screens are validated with users before full build.",
+      tone: "active" as const,
+    },
+    {
+      label: "Architecture defined",
+      detail: "Data, permissions, integrations and reporting are designed together.",
+    },
+    {
+      label: "Phased release",
+      detail: "The first release solves the sharpest workflow without overbuilding.",
+    },
+  ],
+  integrations: ["CRM", "Payments", "Email", "Reports", "Internal tools"],
+} as const;
 
 export default function CustomApplicationsPage() {
   return (
@@ -34,6 +91,18 @@ export default function CustomApplicationsPage() {
       ctaHref="/contact?type=Custom+Application+Discussion"
       backLabel="Back to Solutions"
       backHref="/solutions"
-    />
+    >
+      <Section id="custom-application-preview" surface>
+        <Reveal>
+          <OperationsSystemPreview
+            eyebrow="Visual proof"
+            title="A custom application starts as an operating blueprint."
+            description="Before software is built, the workflow, roles, permissions, data model and integrations are made visible. That is how custom software stays disciplined instead of becoming a risky blank canvas."
+            highlight="Build custom only when the workflow is unique enough that generic software creates operational drag."
+            {...customApplicationPreview}
+          />
+        </Reveal>
+      </Section>
+    </PlaceholderPage>
   );
 }

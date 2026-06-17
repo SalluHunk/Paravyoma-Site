@@ -28,6 +28,7 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
+import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { cn } from "@/lib/utils";
 
 const STRATEGY_HREF = "/contact?type=AI+Strategy+Session";
@@ -44,6 +45,60 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/ai-automation`,
   },
 };
+
+const aiProofPreview = {
+  modules: [
+    "Automation Map",
+    "Lead Triage",
+    "Support Queue",
+    "Documents",
+    "Reports",
+  ],
+  metrics: [
+    { label: "Manual steps removed", value: "18", change: "Phase 1" },
+    { label: "Avg. response time", value: "< 2h", change: "Target" },
+    { label: "Human reviews", value: "14%", change: "Exceptions" },
+    { label: "Weekly hours saved", value: "32", change: "Projected" },
+  ],
+  records: [
+    {
+      name: "Website enquiry: operations audit",
+      meta: "Classified as high-intent and routed to strategy",
+      status: "Auto-routed",
+    },
+    {
+      name: "Support request: invoice copy",
+      meta: "Draft response prepared, awaiting review",
+      status: "Review",
+    },
+    {
+      name: "Vendor document upload",
+      meta: "Fields extracted and matched to existing record",
+      status: "Processed",
+    },
+  ],
+  workflow: [
+    {
+      label: "Input captured",
+      detail: "Forms, email, documents and WhatsApp messages enter one queue.",
+      tone: "done" as const,
+    },
+    {
+      label: "AI classifies",
+      detail: "Intent, urgency and required action are identified automatically.",
+      tone: "active" as const,
+    },
+    {
+      label: "Human approves",
+      detail: "Sensitive or high-value cases stay with the responsible person.",
+    },
+    {
+      label: "System updates",
+      detail: "CRM status, follow-up task and reporting dashboard update together.",
+    },
+  ],
+  integrations: ["Website forms", "Email inbox", "WhatsApp", "CRM", "Reports"],
+} as const;
 
 // ── AI Opportunity Assessment — what's included ───────────────────────────────
 const assessmentItems = [
@@ -172,8 +227,20 @@ export default function AiAutomationPage() {
         </Button>
       </PageHeader>
 
+      <Section id="automation-preview" surface>
+        <Reveal>
+          <OperationsSystemPreview
+            eyebrow="Visual proof"
+            title="An automation system you can inspect, measure and control."
+            description="AI is only useful when it sits inside a real workflow. This preview shows how routine work is captured, classified, reviewed and measured without removing human accountability."
+            highlight="The highest-value automations are usually practical: routing, drafting, extraction, reminders and reporting."
+            {...aiProofPreview}
+          />
+        </Reveal>
+      </Section>
+
       {/* AI Opportunity Assessment */}
-      <Section id="assessment" surface>
+      <Section id="assessment">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div>

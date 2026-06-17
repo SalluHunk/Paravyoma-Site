@@ -34,6 +34,7 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
+import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { cn } from "@/lib/utils";
 
 const ASSESS_HREF = "/contact?type=Workflow+Assessment";
@@ -50,6 +51,61 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/crm-workflow-systems`,
   },
 };
+
+const crmProofPreview = {
+  modules: [
+    "Pipeline",
+    "Contacts",
+    "Tasks",
+    "Automations",
+    "Dashboards",
+  ],
+  metrics: [
+    { label: "Open leads", value: "42", change: "Live" },
+    { label: "Response SLA", value: "94%", change: "On track" },
+    { label: "Overdue tasks", value: "3", change: "Flagged" },
+    { label: "Conversion rate", value: "28%", change: "+6%" },
+  ],
+  records: [
+    {
+      name: "New enquiry: legal consultation",
+      meta: "Owner assigned, first response task generated",
+      status: "New",
+    },
+    {
+      name: "Proposal follow-up: NGO donor CRM",
+      meta: "Day 3 follow-up sequence scheduled",
+      status: "Due today",
+    },
+    {
+      name: "Temple operations discovery",
+      meta: "Consultation booked, briefing note created",
+      status: "Booked",
+    },
+  ],
+  workflow: [
+    {
+      label: "Lead captured",
+      detail: "Every source creates a CRM record with context attached.",
+      tone: "done" as const,
+    },
+    {
+      label: "Owner assigned",
+      detail: "Routing rules assign the right team member automatically.",
+      tone: "done" as const,
+    },
+    {
+      label: "Follow-up triggered",
+      detail: "Tasks, reminders and messages fire without depending on memory.",
+      tone: "active" as const,
+    },
+    {
+      label: "Dashboard updated",
+      detail: "Leadership sees pipeline health without asking for reports.",
+    },
+  ],
+  integrations: ["Website", "WhatsApp", "Email", "Calendar", "Accounting"],
+} as const;
 
 // ── 2 — Common Problems ───────────────────────────────────────────────────────
 const problems = [
@@ -254,7 +310,19 @@ export default function CrmWorkflowSystemsPage() {
       </PageHeader>
 
       {/* 2 — Common Problems */}
-      <Section id="problems" surface>
+      <Section id="crm-preview" surface>
+        <Reveal>
+          <OperationsSystemPreview
+            eyebrow="Visual proof"
+            title="A connected CRM workspace, not another spreadsheet."
+            description="This is the operating view clients need: every lead captured, every next step assigned, and every workflow visible without chasing status updates."
+            highlight="The CRM becomes useful when the workflow is designed first and the software is configured around it."
+            {...crmProofPreview}
+          />
+        </Reveal>
+      </Section>
+
+      <Section id="problems">
         <SectionHeading
           eyebrow="Common problems we solve"
           title="The gaps that cost you deals, time and trust."

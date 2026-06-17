@@ -30,6 +30,7 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
+import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { cn } from "@/lib/utils";
 
 const CONSULT_HREF = "/contact?type=Temple+Technology+Consultation";
@@ -46,6 +47,61 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/temple-solutions`,
   },
 };
+
+const templeProofPreview = {
+  modules: [
+    "Daily Operations",
+    "Donations",
+    "Seva Bookings",
+    "Volunteers",
+    "Trustee Reports",
+  ],
+  metrics: [
+    { label: "Today's sevas", value: "36", change: "Scheduled" },
+    { label: "Receipts issued", value: "128", change: "Today" },
+    { label: "Festival capacity", value: "640/800", change: "Open" },
+    { label: "Volunteer coverage", value: "92%", change: "Ready" },
+  ],
+  records: [
+    {
+      name: "Annual festival registration",
+      meta: "Capacity tracked, confirmation sent by WhatsApp",
+      status: "Open",
+    },
+    {
+      name: "Morning seva roster",
+      meta: "Priest team, volunteers and materials assigned",
+      status: "Ready",
+    },
+    {
+      name: "Trustee donation summary",
+      meta: "Receipt totals and donor records reconciled",
+      status: "Updated",
+    },
+  ],
+  workflow: [
+    {
+      label: "Devotee interaction",
+      detail: "Donation, seva or registration begins at desk or online.",
+      tone: "done" as const,
+    },
+    {
+      label: "Record updated",
+      detail: "Devotee history, receipt and event capacity update together.",
+      tone: "done" as const,
+    },
+    {
+      label: "Confirmation sent",
+      detail: "WhatsApp or printed confirmation is generated automatically.",
+      tone: "active" as const,
+    },
+    {
+      label: "Trustee view refreshed",
+      detail: "Daily and monthly reports stay audit-ready without manual collation.",
+    },
+  ],
+  integrations: ["Front desk", "Online forms", "WhatsApp", "Payments", "Reports"],
+} as const;
 
 // ── 2 — Challenges We Solve ───────────────────────────────────────────────────
 const challenges = [
@@ -211,7 +267,19 @@ export default function TempleSolutionsPage() {
       </PageHeader>
 
       {/* 2 — Challenges We Solve */}
-      <Section id="challenges" surface>
+      <Section id="temple-preview" surface>
+        <Reveal>
+          <OperationsSystemPreview
+            eyebrow="Visual proof"
+            title="A temple operations console built around service."
+            description="The system brings donations, sevas, events, volunteers and trustee reporting into one calm operating view without forcing sacred work into generic business software."
+            highlight="The best temple technology becomes invisible: receipts, reminders, rosters and reports happen reliably in the background."
+            {...templeProofPreview}
+          />
+        </Reveal>
+      </Section>
+
+      <Section id="challenges">
         <SectionHeading
           eyebrow="Challenges we solve"
           title="The everyday friction temples know too well."

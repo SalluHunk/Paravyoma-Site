@@ -21,6 +21,7 @@ interface PlaceholderPageProps {
   /** Optional secondary link back to a hub. */
   backLabel?: string;
   backHref?: string;
+  children?: React.ReactNode;
 }
 
 /**
@@ -38,6 +39,7 @@ export function PlaceholderPage({
   ctaHref = "/contact?type=Schedule+Consultation",
   backLabel,
   backHref,
+  children,
 }: PlaceholderPageProps) {
   return (
     <>
@@ -47,6 +49,8 @@ export function PlaceholderPage({
           In active development
         </span>
       </PageHeader>
+
+      {children}
 
       <Section surface>
         <div className="mx-auto max-w-3xl">

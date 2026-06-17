@@ -29,6 +29,7 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
+import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { cn } from "@/lib/utils";
 
 const CONSULT_HREF = "/contact?type=Transformation+Consultation";
@@ -45,6 +46,60 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/digital-transformation`,
   },
 };
+
+const transformationProofPreview = {
+  modules: [
+    "Systems Map",
+    "Process Flows",
+    "Data Sources",
+    "Automation Plan",
+    "Executive View",
+  ],
+  metrics: [
+    { label: "Disconnected tools", value: "9", change: "Mapped" },
+    { label: "Manual handoffs", value: "21", change: "Found" },
+    { label: "Reporting delay", value: "4d", change: "Baseline" },
+    { label: "Quick wins", value: "6", change: "Ranked" },
+  ],
+  records: [
+    {
+      name: "Lead intake to onboarding",
+      meta: "Three handoffs, two duplicate entries, no owner after proposal",
+      status: "Redesign",
+    },
+    {
+      name: "Weekly leadership reporting",
+      meta: "Finance, CRM and operations data combined manually",
+      status: "Automate",
+    },
+    {
+      name: "Customer support escalation",
+      meta: "Ticket context lost between inbox and project team",
+      status: "Connect",
+    },
+  ],
+  workflow: [
+    {
+      label: "Current state mapped",
+      detail: "Tools, spreadsheets, inboxes and manual workarounds are documented.",
+      tone: "done" as const,
+    },
+    {
+      label: "Gaps ranked",
+      detail: "Friction is scored by business impact, risk and implementation effort.",
+      tone: "active" as const,
+    },
+    {
+      label: "Future state designed",
+      detail: "The operating model is drawn before any technology is changed.",
+    },
+    {
+      label: "Staged rollout",
+      detail: "Each phase ships a stable improvement before the next begins.",
+    },
+  ],
+  integrations: ["CRM", "Finance", "Forms", "Email", "Dashboards"],
+} as const;
 
 // ── 2 — Assessment Areas ──────────────────────────────────────────────────────
 const assessmentAreas = [
@@ -222,7 +277,19 @@ export default function DigitalTransformationPage() {
       </PageHeader>
 
       {/* 2 — Assessment */}
-      <Section id="assessment" surface>
+      <Section id="operating-model-preview" surface>
+        <Reveal>
+          <OperationsSystemPreview
+            eyebrow="Visual proof"
+            title="From scattered tools to a connected operating model."
+            description="Transformation starts by making the invisible visible: the tools, handoffs, duplicate work and reporting gaps that shape how the organisation actually runs."
+            highlight="A future-state system is designed around the operating model first, then implemented in stages."
+            {...transformationProofPreview}
+          />
+        </Reveal>
+      </Section>
+
+      <Section id="assessment">
         <SectionHeading
           eyebrow="Our assessment approach"
           title="Clarity before commitment."
