@@ -30,6 +30,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
+import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { testimonials } from "@/lib/trust";
 import { cn } from "@/lib/utils";
 
 const CONSULT_HREF = "/contact?type=Transformation+Consultation";
@@ -268,7 +270,12 @@ export default function DigitalTransformationPage() {
         title="Modernize operations without disrupting growth."
         description="We help organisations move from manual, disconnected processes to connected systems and real-time visibility — one steady, measured step at a time. No big-bang overhauls. No months of downtime. Just clear progress."
       >
-        <Button asChild variant="brand" size="lg">
+        <Button
+          asChild
+          variant="brand"
+          size="lg"
+          className="h-auto min-h-12 whitespace-normal px-5 py-3 text-center leading-snug sm:px-7"
+        >
           <Link href={CONSULT_HREF}>
             <CalendarCheck className="size-4" />
             Schedule a Transformation Consultation
@@ -287,6 +294,10 @@ export default function DigitalTransformationPage() {
             {...transformationProofPreview}
           />
         </Reveal>
+      </Section>
+
+      <Section id="transformation-trust">
+        <TestimonialSpotlight {...testimonials.transformation} />
       </Section>
 
       <Section id="assessment">

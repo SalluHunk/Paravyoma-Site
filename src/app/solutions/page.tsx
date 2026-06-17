@@ -44,10 +44,10 @@ const solutionAreas = [
   },
   {
     icon: Landmark,
-    name: "Temple Solutions",
+    name: "Temple Suite",
     description:
-      "Purpose-built technology for temples and spiritual organizations — designed around how you serve.",
-    href: "/temple-solutions",
+      "A specialized temple operations platform for donations, sevas, volunteers, events and trustee visibility.",
+    href: "/temple-suite",
   },
   {
     icon: Blocks,

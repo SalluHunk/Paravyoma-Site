@@ -14,6 +14,7 @@ import { Section } from "@/components/shared/section";
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
 import { ContactCta } from "@/components/sections/contact-cta";
+import { TeamTrustSection } from "@/components/trust/team-trust-section";
 
 export const metadata: Metadata = {
   title: "About",
@@ -111,6 +112,8 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+
+      <TeamTrustSection />
 
       {/* Values */}
       <Section id="values">

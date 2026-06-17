@@ -31,6 +31,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
+import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { testimonials } from "@/lib/trust";
 import { cn } from "@/lib/utils";
 
 const CONSULT_HREF = "/contact?type=Temple+Technology+Consultation";
@@ -256,14 +258,32 @@ export default function TempleSolutionsPage() {
       <PageHeader
         eyebrow="Temple Solutions"
         title="Technology that supports service, community and growth."
-        description="Purpose-built systems for modern temples and spiritual organizations — designed around the way you serve, not the way software usually works."
+        description="Purpose-built systems for modern temples and spiritual organizations. For temples ready for a dedicated operating platform, Paravyoma's flagship Temple Suite connects donations, sevas, volunteers, events and trustee visibility."
       >
-        <Button asChild variant="brand" size="lg">
-          <Link href={CONSULT_HREF}>
-            <CalendarCheck className="size-4" />
-            Book a Temple Technology Consultation
-          </Link>
-        </Button>
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button
+            asChild
+            variant="brand"
+            size="lg"
+            className="h-auto min-h-12 whitespace-normal px-5 py-3 text-center leading-snug sm:px-7"
+          >
+            <Link href="/temple-suite">
+              <Landmark className="size-4" />
+              Explore Temple Suite
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="h-auto min-h-12 whitespace-normal px-5 py-3 text-center leading-snug sm:px-7"
+          >
+            <Link href={CONSULT_HREF}>
+              Book a Consultation
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
       </PageHeader>
 
       {/* 2 — Challenges We Solve */}
@@ -277,6 +297,10 @@ export default function TempleSolutionsPage() {
             {...templeProofPreview}
           />
         </Reveal>
+      </Section>
+
+      <Section id="temple-trust">
+        <TestimonialSpotlight {...testimonials.temple} />
       </Section>
 
       <Section id="challenges">
@@ -555,8 +579,8 @@ export default function TempleSolutionsPage() {
                     size="lg"
                     className="w-full border border-white/15 bg-white/10 text-primary-foreground shadow-soft hover:bg-white/15 sm:w-auto"
                   >
-                    <Link href="/solutions">
-                      Explore all solutions
+                    <Link href="/temple-suite">
+                      Explore Temple Suite
                       <ArrowRight className="size-4" />
                     </Link>
                   </Button>

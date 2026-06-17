@@ -9,6 +9,7 @@ import { SystemsFlow } from "@/components/sections/systems-flow";
 import { Process } from "@/components/sections/process";
 import { Industries } from "@/components/sections/industries";
 import { ContactCta } from "@/components/sections/contact-cta";
+import { ClientProofStrip } from "@/components/trust/client-proof-strip";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       {/* 2 — Trust: Who we help */}
       <TrustBand />
+      <ClientProofStrip />
       {/* 3 — Solutions Overview */}
       <Services />
       {/* 4 — Before / After: The difference technology makes */}

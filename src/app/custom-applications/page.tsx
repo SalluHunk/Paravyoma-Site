@@ -4,6 +4,8 @@ import { PlaceholderPage } from "@/components/shared/placeholder-page";
 import { Section } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
+import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { testimonials } from "@/lib/trust";
 
 export const metadata: Metadata = {
   title: "Custom Applications",
@@ -102,6 +104,9 @@ export default function CustomApplicationsPage() {
             {...customApplicationPreview}
           />
         </Reveal>
+      </Section>
+      <Section id="custom-application-trust">
+        <TestimonialSpotlight {...testimonials.custom} />
       </Section>
     </PlaceholderPage>
   );

@@ -81,14 +81,15 @@ const products = [
   {
     icon: Landmark,
     name: "Temple Suite",
+    href: "/temple-suite",
     tagline:
-      "Digital operations platform for temples and religious institutions.",
+      "Specialized operations platform for temples and spiritual organizations.",
     description:
-      "Born from years of Temple Solutions implementation work, Temple Suite packages everything a religious institution needs — donation management, volunteer coordination, event booking, and member archives — into one purpose-built system designed for the specific rhythms of temple life.",
+      "Paravyoma's flagship platform initiative for spiritual organizations: donation management, seva scheduling, volunteer coordination, events, inventory, book distribution, community engagement and trustee visibility in one purpose-built system.",
     capabilities: [
       "Donation, seva, and puja management",
       "Volunteer scheduling and event coordination",
-      "Member communication, notices, and digital archives",
+      "Inventory, book distribution, analytics and community engagement",
     ],
     stage: "Validation" as Stage,
     stageNote: "Being tested with active temple partners",
@@ -322,6 +323,20 @@ export default function ProductsPage() {
                         {product.stageNote}
                       </span>
                     </div>
+
+                    {"href" in product ? (
+                      <Button
+                        asChild
+                        variant="secondary"
+                        size="sm"
+                        className="mt-5 w-fit"
+                      >
+                        <Link href={product.href}>
+                          Explore Temple Suite
+                          <ArrowRight className="size-4" />
+                        </Link>
+                      </Button>
+                    ) : null}
                   </div>
                 </div>
               </Reveal>

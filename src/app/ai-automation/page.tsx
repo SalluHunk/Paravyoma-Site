@@ -29,6 +29,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
+import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { testimonials } from "@/lib/trust";
 import { cn } from "@/lib/utils";
 
 const STRATEGY_HREF = "/contact?type=AI+Strategy+Session";
@@ -237,6 +239,10 @@ export default function AiAutomationPage() {
             {...aiProofPreview}
           />
         </Reveal>
+      </Section>
+
+      <Section id="automation-trust">
+        <TestimonialSpotlight {...testimonials.ai} />
       </Section>
 
       {/* AI Opportunity Assessment */}

@@ -8,7 +8,13 @@ import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <button

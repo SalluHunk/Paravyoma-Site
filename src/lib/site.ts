@@ -19,7 +19,7 @@ export const siteConfig = {
         { label: "AI Automation", href: "/ai-automation" },
         { label: "Digital Transformation", href: "/digital-transformation" },
         { label: "CRM & Workflow Systems", href: "/crm-workflow-systems" },
-        { label: "Temple Solutions", href: "/temple-solutions" },
+        { label: "Temple Suite", href: "/temple-suite" },
         { label: "Custom Applications", href: "/custom-applications" },
       ],
     },
@@ -37,7 +37,14 @@ export const siteConfig = {
         { label: "FAQ", href: "/resources/faq" },
       ],
     },
-    { label: "Products", href: "/products" },
+    {
+      label: "Products",
+      href: "/products",
+      children: [
+        { label: "Temple Suite", href: "/temple-suite" },
+        { label: "Products Lab", href: "/products" },
+      ],
+    },
     { label: "Contact", href: "/contact" },
   ],
   footerNav: {
@@ -45,6 +52,7 @@ export const siteConfig = {
       { label: "AI Automation", href: "/ai-automation" },
       { label: "Digital Transformation", href: "/digital-transformation" },
       { label: "CRM & Workflow Systems", href: "/crm-workflow-systems" },
+      { label: "Temple Suite", href: "/temple-suite" },
       { label: "Temple Solutions", href: "/temple-solutions" },
       { label: "Custom Applications", href: "/custom-applications" },
     ],

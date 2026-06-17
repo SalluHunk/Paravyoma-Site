@@ -5,7 +5,8 @@
   "description": "Premium B2B website for Paravyoma Technologies — AI-assisted execution. Human-led strategy.",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "node scripts/build-production.mjs",
+    "build:next": "next build --turbopack",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"

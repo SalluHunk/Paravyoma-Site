@@ -112,7 +112,7 @@ export const solutions: Solution[] = [
   {
     id: "temple-management",
     number: "06",
-    name: "Temple Management Solutions",
+    name: "Temple Suite",
     icon: Landmark,
     challenge:
       "Donations, seva, events, volunteers and records are often managed by hand — time-consuming, error-prone and hard to sustain.",
@@ -124,6 +124,6 @@ export const solutions: Solution[] = [
       "Accurate records with far less effort",
       "A dignified, trustworthy digital presence",
     ],
-    cta: { label: "Modernise our temple", href: "/#contact" },
+    cta: { label: "Explore Temple Suite", href: "/temple-suite" },
   },
 ];

@@ -35,6 +35,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
+import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { testimonials } from "@/lib/trust";
 import { cn } from "@/lib/utils";
 
 const ASSESS_HREF = "/contact?type=Workflow+Assessment";
@@ -320,6 +322,10 @@ export default function CrmWorkflowSystemsPage() {
             {...crmProofPreview}
           />
         </Reveal>
+      </Section>
+
+      <Section id="crm-trust">
+        <TestimonialSpotlight {...testimonials.crm} />
       </Section>
 
       <Section id="problems">

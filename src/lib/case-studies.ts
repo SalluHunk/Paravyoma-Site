@@ -51,6 +51,37 @@ export interface LessonLearned {
   description: string;
 }
 
+export interface ExecutiveSummaryBlock {
+  label: string;
+  value: string;
+}
+
+export interface ExistingProcess {
+  heading: string;
+  body: string;
+  steps: string[];
+}
+
+export interface CaseStudyVisual {
+  title: string;
+  description: string;
+  points: string[];
+}
+
+export interface CaseStudyTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+export interface CaseStudySalesAsset {
+  executiveSummary: ExecutiveSummaryBlock[];
+  existingProcess: ExistingProcess;
+  visuals: CaseStudyVisual[];
+  testimonial: CaseStudyTestimonial;
+  futureRoadmap: RoadmapPhase[];
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -620,6 +651,329 @@ const CASE_STUDIES: CaseStudy[] = [
 // These are the only interfaces pages and components should use.
 // When switching to a CMS, replace the implementations — not the call sites.
 
+const CASE_STUDY_SALES_ASSETS: Record<string, CaseStudySalesAsset> = {
+  "law-firm-crm-transformation": {
+    executiveSummary: [
+      {
+        label: "Client situation",
+        value:
+          "A litigation firm had strong demand but no reliable intake system across website, WhatsApp, phone and referrals.",
+      },
+      {
+        label: "Mandate",
+        value:
+          "Create one pipeline for every enquiry, automate routine follow-up and give partners live visibility into business development.",
+      },
+      {
+        label: "Intervention",
+        value:
+          "A configured CRM, channel integrations, automated qualification, partner tasks and structured handoff notes.",
+      },
+      {
+        label: "Commercial impact",
+        value:
+          "First response dropped below 2 hours and enquiry-to-consultation conversion increased by 40%.",
+      },
+    ],
+    existingProcess: {
+      heading: "The intake process before Paravyoma",
+      body:
+        "The firm did not have a defined intake operating model. Each channel created its own informal process, which meant follow-up quality depended on who saw the message first.",
+      steps: [
+        "Prospect enquiry arrived through website, WhatsApp, phone or referral.",
+        "A partner, paralegal or receptionist manually noted the enquiry.",
+        "Follow-up depended on personal reminders and inbox memory.",
+        "Consultation context was passed verbally to the case team.",
+        "Leadership had no reliable view of lead volume, source or conversion.",
+      ],
+    },
+    visuals: [
+      {
+        title: "Unified intake pipeline",
+        description:
+          "A board-style CRM view showing every enquiry by stage, owner, practice area and next action.",
+        points: [
+          "New, contacted, consultation booked and retained stages",
+          "Source tagging for website, WhatsApp, phone and referral",
+          "Owner and next-action due dates visible at a glance",
+        ],
+      },
+      {
+        title: "Partner follow-up dashboard",
+        description:
+          "A daily operating view for partners showing overdue leads, booked consultations and source quality.",
+        points: [
+          "Response SLA tracker",
+          "High-intent lead queue",
+          "Weekly conversion and source reporting",
+        ],
+      },
+    ],
+    testimonial: {
+      quote:
+        "For the first time, we can see every enquiry, who owns it and what needs to happen next. It removed the anxiety of wondering what we had missed.",
+      name: "Managing Partner",
+      role: "Mid-size Litigation Firm",
+    },
+    futureRoadmap: [
+      {
+        phase: "Next phase",
+        title: "Matter onboarding automation",
+        description:
+          "Extend the CRM handoff into matter setup, document collection and new-client onboarding tasks.",
+        duration: "4 weeks",
+      },
+      {
+        phase: "Expansion",
+        title: "Referral source intelligence",
+        description:
+          "Build deeper reporting on referral quality, practice-area demand and partner conversion performance.",
+        duration: "6 weeks",
+      },
+    ],
+  },
+  "coaching-institute-admissions": {
+    executiveSummary: [
+      {
+        label: "Client situation",
+        value:
+          "A multi-branch coaching institute was managing admissions, fees and parent communication across registers, Excel and WhatsApp.",
+      },
+      {
+        label: "Mandate",
+        value:
+          "Create one admissions and fee-management system across three locations without disrupting the academic calendar.",
+      },
+      {
+        label: "Intervention",
+        value:
+          "A multi-location CRM, automated fee workflows, parent portal and live management dashboards.",
+      },
+      {
+        label: "Operational impact",
+        value:
+          "Admissions processing time fell by 65% and weekly reporting dropped from 6 hours to 30 minutes.",
+      },
+    ],
+    existingProcess: {
+      heading: "The admissions process before Paravyoma",
+      body:
+        "Each branch operated independently. This gave local coordinators flexibility, but it left leadership without dependable numbers and created repeated manual work for every admissions cycle.",
+      steps: [
+        "Enquiry captured locally in a register or coordinator spreadsheet.",
+        "Coordinator manually followed up with parents by phone or WhatsApp.",
+        "Fee schedule tracked in branch-level Excel files.",
+        "Receipts and reminders handled manually by each coordinator.",
+        "Management called branches weekly to assemble consolidated numbers.",
+      ],
+    },
+    visuals: [
+      {
+        title: "Admissions command center",
+        description:
+          "A consolidated view of enquiries, branch capacity, student status and pending fee actions.",
+        points: [
+          "Branch and course filters",
+          "Admission stage funnel",
+          "Duplicate record warnings",
+        ],
+      },
+      {
+        title: "Parent portal",
+        description:
+          "A simple self-service layer for receipts, fee history, schedules and announcements.",
+        points: [
+          "Payment receipt history",
+          "Class and batch schedules",
+          "Announcement feed for parents",
+        ],
+      },
+    ],
+    testimonial: {
+      quote:
+        "The parent portal changed how families perceived us. It made the institute feel organized, transparent and easier to trust.",
+      name: "Institute Director",
+      role: "STEM Coaching Institute",
+    },
+    futureRoadmap: [
+      {
+        phase: "Next phase",
+        title: "Student progress visibility",
+        description:
+          "Connect attendance, assessment performance and parent communication into the same portal experience.",
+        duration: "8 weeks",
+      },
+      {
+        phase: "Expansion",
+        title: "Marketing attribution",
+        description:
+          "Track which campaigns and referral sources produce enrolled, retained students by branch and course.",
+        duration: "5 weeks",
+      },
+    ],
+  },
+  "temple-operations-overhaul": {
+    executiveSummary: [
+      {
+        label: "Client situation",
+        value:
+          "A historic temple trust relied on paper ledgers, informal volunteer knowledge and manual trustee reporting.",
+      },
+      {
+        label: "Mandate",
+        value:
+          "Modernize temple administration while preserving the institution's rhythm, dignity and service culture.",
+      },
+      {
+        label: "Intervention",
+        value:
+          "A purpose-built temple operations system for donations, seva scheduling, event registration, volunteers and trustee dashboards.",
+      },
+      {
+        label: "Institutional impact",
+        value:
+          "Donation transparency improved, festival overflow was eliminated and trustee reports had zero discrepancies in year one.",
+      },
+    ],
+    existingProcess: {
+      heading: "The temple operating model before Paravyoma",
+      body:
+        "The temple's daily operations were sustained by dedication and personal knowledge. That worked while key volunteers were present, but it created fragility and limited transparency for trustees and donors.",
+      steps: [
+        "Donation details entered by hand in physical ledgers.",
+        "Seva schedules maintained on noticeboards and in volunteer memory.",
+        "Festival registrations collected through paper forms.",
+        "Volunteer assignments made informally by one coordinator.",
+        "Trustee reports prepared manually from ledgers after month-end.",
+      ],
+    },
+    visuals: [
+      {
+        title: "Temple operations console",
+        description:
+          "A calm daily view of donations, sevas, events, volunteers and trustee reporting.",
+        points: [
+          "Donation receipt queue",
+          "Daily seva roster",
+          "Festival capacity and volunteer coverage",
+        ],
+      },
+      {
+        title: "Trustee transparency dashboard",
+        description:
+          "A monthly reporting layer designed for governance, donor transparency and audit readiness.",
+        points: [
+          "Donation totals and categories",
+          "Receipt reconciliation",
+          "Export-ready trustee summaries",
+        ],
+      },
+    ],
+    testimonial: {
+      quote:
+        "The system became invisible in the best way. It supports service without changing the spirit of how the temple runs.",
+      name: "Temple Trustee",
+      role: "Historic Temple Trust",
+    },
+    futureRoadmap: [
+      {
+        phase: "Next phase",
+        title: "Temple Suite migration",
+        description:
+          "Move the implementation into Paravyoma's Temple Suite architecture for deeper module coverage and long-term product support.",
+        duration: "6 weeks",
+      },
+      {
+        phase: "Expansion",
+        title: "Community engagement and book distribution",
+        description:
+          "Add member communication, book stock, distribution counters and campaign reporting to the same temple record layer.",
+        duration: "8 weeks",
+      },
+    ],
+  },
+  "nonprofit-donor-crm": {
+    executiveSummary: [
+      {
+        label: "Client situation",
+        value:
+          "A rural education NGO had 1,200 donors but no systematic donor stewardship or retention process.",
+      },
+      {
+        label: "Mandate",
+        value:
+          "Create a donor relationship system that acknowledged giving quickly, segmented communication and recovered lapsed donors.",
+      },
+      {
+        label: "Intervention",
+        value:
+          "A donor CRM with acknowledgment automation, stewardship sequences, lapsed-donor workflows and fundraising dashboards.",
+      },
+      {
+        label: "Fundraising impact",
+        value:
+          "First-year donor retention increased from 52% to 80%, representing roughly Rs. 8L in retained contributions.",
+      },
+    ],
+    existingProcess: {
+      heading: "The donor journey before Paravyoma",
+      body:
+        "The organization had earned donor trust through field work, but its operating system did not sustain that trust after the first contribution.",
+      steps: [
+        "Donation received and manually added to one of several spreadsheets.",
+        "Acknowledgment sent days later, if a staff member remembered.",
+        "Donor history unavailable during follow-up conversations.",
+        "Annual newsletter sent without segmentation or engagement tracking.",
+        "Lapsed donors were not identified or re-engaged systematically.",
+      ],
+    },
+    visuals: [
+      {
+        title: "Donor relationship dashboard",
+        description:
+          "A segmented CRM view of new donors, retained donors, lapsed donors and major supporters.",
+        points: [
+          "Donation history by donor",
+          "Stewardship tier",
+          "Next touchpoint and owner",
+        ],
+      },
+      {
+        title: "Impact communication workflow",
+        description:
+          "Automated but human-reviewed messages that connect donor contribution to program outcomes.",
+        points: [
+          "Same-day acknowledgment",
+          "Monthly impact briefs",
+          "Lapsed donor reactivation sequence",
+        ],
+      },
+    ],
+    testimonial: {
+      quote:
+        "We stopped treating donor communication as admin. The system helped us steward relationships with the care our donors expected.",
+      name: "Fundraising Director",
+      role: "Rural Education NGO",
+    },
+    futureRoadmap: [
+      {
+        phase: "Next phase",
+        title: "Grant and major donor reporting",
+        description:
+          "Extend the CRM into funder-specific reporting, grant milestones and major donor briefing packs.",
+        duration: "6 weeks",
+      },
+      {
+        phase: "Expansion",
+        title: "Program impact data integration",
+        description:
+          "Connect student and program outcome data directly into donor impact communication workflows.",
+        duration: "8 weeks",
+      },
+    ],
+  },
+};
+
 export function getAllCaseStudies(): CaseStudy[] {
   return [...CASE_STUDIES].sort(
     (a, b) =>
@@ -629,6 +983,12 @@ export function getAllCaseStudies(): CaseStudy[] {
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return CASE_STUDIES.find((cs) => cs.slug === slug);
+}
+
+export function getCaseStudySalesAsset(
+  slug: string
+): CaseStudySalesAsset | undefined {
+  return CASE_STUDY_SALES_ASSETS[slug];
 }
 
 export function getFeaturedCaseStudy(): CaseStudy | undefined {
