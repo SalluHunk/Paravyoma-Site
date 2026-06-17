@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Case Studies",
   description:
     "Real outcomes from real engagements. How Paravyoma helped organisations solve hard operational and technology problems — with the numbers to prove it.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/resources/case-studies` },
   openGraph: {
     title: `Case Studies — ${siteConfig.name}`,

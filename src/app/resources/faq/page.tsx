@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "The questions teams ask Paravyoma most — answered honestly and without jargon.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/resources/faq` },
   openGraph: {
     title: `FAQ — ${siteConfig.name}`,

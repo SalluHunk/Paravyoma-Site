@@ -48,8 +48,8 @@ export function Hero() {
             style={{ animationDelay: "160ms" }}
           >
             <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link href="/#contact">
-                Book a Consultation
+              <Link href="/contact">
+                Book a Free Consultation
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
@@ -59,7 +59,7 @@ export function Hero() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              <Link href="/#solutions">Explore Solutions</Link>
+              <Link href="/case-studies">See Case Studies</Link>
             </Button>
           </div>
 

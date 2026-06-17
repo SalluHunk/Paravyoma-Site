@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Custom Applications",
   description:
     "Bespoke software built around your exact process when off-the-shelf tools fall short. Built to last, built to scale.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/custom-applications` },
   openGraph: {
     title: `Custom Applications — ${siteConfig.name}`,

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Insights Blog",
   description:
     "Practical thinking on operations, automation, digital transformation and the decisions that matter for growing organisations.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/resources/insights` },
   openGraph: {
     title: `Insights Blog — ${siteConfig.name}`,

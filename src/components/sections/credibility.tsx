@@ -14,12 +14,7 @@ import { cn } from "@/lib/utils";
 
 // ── Update these as Paravyoma grows ─────────────────────────────────────────
 // Each entry: value (the displayed number/text) + label shown below it.
-const stats = [
-  { value: "40+", label: "Projects Delivered" },
-  { value: "25+", label: "Systems Built" },
-  { value: "10,000+", label: "Hours Saved" },
-  { value: "30+", label: "Organizations Served" },
-] as const;
+const stats: ReadonlyArray<{ value: string; label: string }> = [];
 // ────────────────────────────────────────────────────────────────────────────
 
 const pillars = [
@@ -73,28 +68,30 @@ export function Credibility() {
       />
 
       {/* ── Stats band ────────────────────────────────────────────────── */}
-      <Reveal>
-        <div className="mt-14 overflow-hidden rounded-2xl bg-primary shadow-lift">
-          <dl className="grid grid-cols-2 divide-x divide-y divide-primary-foreground/10 lg:grid-cols-4 lg:divide-y-0">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center justify-center px-6 py-10 text-center"
-              >
-                <dt className="order-2 mt-2 text-sm font-medium text-primary-foreground/60">
-                  {stat.label}
-                </dt>
-                <dd className="order-1 font-display text-4xl font-bold tracking-tight text-brand sm:text-5xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </Reveal>
+      {stats.length > 0 ? (
+        <Reveal>
+          <div className="mt-14 overflow-hidden rounded-2xl bg-primary shadow-lift">
+            <dl className="grid grid-cols-2 divide-x divide-y divide-primary-foreground/10 lg:grid-cols-4 lg:divide-y-0">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center justify-center px-6 py-10 text-center"
+                >
+                  <dt className="order-2 mt-2 text-sm font-medium text-primary-foreground/60">
+                    {stat.label}
+                  </dt>
+                  <dd className="order-1 font-display text-4xl font-bold tracking-tight text-brand sm:text-5xl">
+                    {stat.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </Reveal>
+      ) : null}
 
       {/* ── Trust pillars ──────────────────────────────────────────────── */}
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {pillars.map((pillar, i) => (
           <Reveal
             key={pillar.title}

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Downloads",
   description:
     "Templates, checklists and practical tools you can use immediately — built from real client work at Paravyoma.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/resources/downloads` },
   openGraph: {
     title: `Downloads — ${siteConfig.name}`,

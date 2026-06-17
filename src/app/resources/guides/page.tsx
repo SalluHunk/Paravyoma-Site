@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Guides",
   description:
     "Step-by-step frameworks and decision guides for the operational and technology challenges every growing organisation faces.",
+  robots: { index: false, follow: true },
   alternates: { canonical: `${siteConfig.url}/resources/guides` },
   openGraph: {
     title: `Guides — ${siteConfig.name}`,
