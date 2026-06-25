@@ -20,7 +20,8 @@ import type { Service } from "./case-studies";
 export type KnowledgeCenterKey =
   | "digital-transformation"
   | "ai-automation"
-  | "temple-operations";
+  | "temple-operations"
+  | "crm-maturity";
 
 export interface AssessmentOption {
   label: string;
@@ -345,6 +346,100 @@ const KNOWLEDGE_CENTERS: Record<KnowledgeCenterKey, KnowledgeCenterConfig> = {
           title: "Start with the conversation, not the software",
           description:
             "Rolling out a system now would likely meet resistance. Building committee agreement and basic data hygiene first will make adoption far smoother.",
+        },
+      ],
+    },
+  },
+
+  "crm-maturity": {
+    key: "crm-maturity",
+    eyebrow: "CRM Maturity Knowledge Center",
+    title: "Most CRM problems aren't CRM problems.",
+    description:
+      "Frameworks, templates and an interactive maturity score — built from the CRM and workflow engagements we run for growing organisations every day.",
+    problem: {
+      heading: "Why CRMs get blamed for process problems",
+      body: "Most \"the CRM doesn't work\" complaints are actually data, adoption or process problems wearing a CRM costume. Replacing the tool without fixing the underlying issue just moves the same problem into a new system.",
+      painPoints: [
+        "Leads and customer data scattered across spreadsheets and WhatsApp",
+        "Logging customer interactions is inconsistent across the team",
+        "No visibility into pipeline or conversion without manual compilation",
+        "A CRM was bought, but the team quietly reverted to old habits",
+      ],
+    },
+    flagshipGuideId: "crm-maturity-guide",
+    resourceCategory: "CRM & Sales",
+    articleCategory: "Business Systems",
+    caseStudyService: "CRM & Workflow Systems",
+    assessment: {
+      title: "CRM Maturity Score",
+      description:
+        "Five questions on how your team actually captures, tracks and acts on customer data today. Takes two minutes — get your score and a tailored next step.",
+      questions: [
+        {
+          id: "centralization",
+          prompt: "How centralized is your customer and lead data today?",
+          options: [
+            { label: "Scattered across spreadsheets and WhatsApp", score: 0 },
+            { label: "One tool, but used inconsistently", score: 1 },
+            { label: "A single, reliable source of truth", score: 2 },
+          ],
+        },
+        {
+          id: "logging",
+          prompt: "How consistently does your team log customer interactions?",
+          options: [
+            { label: "Rarely — mostly kept in people's heads", score: 0 },
+            { label: "Sometimes, depending on the person", score: 1 },
+            { label: "Consistently, as part of the workflow", score: 2 },
+          ],
+        },
+        {
+          id: "routing",
+          prompt: "Are new leads routed and assigned automatically, or manually?",
+          options: [
+            { label: "Manually, whenever someone notices them", score: 0 },
+            { label: "A loose manual process exists", score: 1 },
+            { label: "Automatically, by defined rules", score: 2 },
+          ],
+        },
+        {
+          id: "visibility",
+          prompt: "Can you see pipeline and conversion metrics without manual compilation?",
+          options: [
+            { label: "No — someone has to build a report by hand", score: 0 },
+            { label: "Partially, with some manual cleanup", score: 1 },
+            { label: "Yes, in real time", score: 2 },
+          ],
+        },
+        {
+          id: "adoption",
+          prompt: "How well does your team actually use the CRM day to day?",
+          options: [
+            { label: "Most have quietly gone back to old habits", score: 0 },
+            { label: "Used, but inconsistently across the team", score: 1 },
+            { label: "Used consistently — it's the system of record", score: 2 },
+          ],
+        },
+      ],
+      tiers: [
+        {
+          minScore: 8,
+          title: "CRM-mature — optimize, don't rebuild",
+          description:
+            "Your foundations are solid. The highest-value work now is automation and reporting on top of what you have, not replacing the system.",
+        },
+        {
+          minScore: 4,
+          title: "Functional but fragile",
+          description:
+            "The CRM technically works, but at least one gap — usually adoption or routing — is quietly costing you leads. Closing it first is cheaper than switching platforms.",
+        },
+        {
+          minScore: 0,
+          title: "Pre-CRM — fix the data before adding a tool",
+          description:
+            "Buying or replacing a CRM right now would just move the same problem into a new system. Centralizing and cleaning your data first is the actual unlock.",
         },
       ],
     },

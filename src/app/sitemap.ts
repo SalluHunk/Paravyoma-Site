@@ -100,6 +100,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: `${siteConfig.url}/knowledge/crm-maturity`,
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
       url: `${siteConfig.url}/case-studies`,
       lastModified: staticLastModified,
       changeFrequency: "weekly",

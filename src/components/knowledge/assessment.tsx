@@ -34,6 +34,14 @@ export function Assessment({ config }: Props) {
     config.tiers.find((t) => score >= t.minScore) ??
     config.tiers[config.tiers.length - 1];
 
+  /**
+   * Lead qualification model: a normalized tier independent of each
+   * assessment's narrative copy, so every knowledge center routes leads
+   * on the same scale regardless of which assessment they came from.
+   */
+  const qualification: "Hot" | "Warm" | "Cold" =
+    score / maxScore >= 0.7 ? "Hot" : score / maxScore >= 0.4 ? "Warm" : "Cold";
+
   function selectOption(questionId: string, optionScore: number) {
     setAnswers((prev) => ({ ...prev, [questionId]: optionScore }));
   }
@@ -55,6 +63,7 @@ export function Assessment({ config }: Props) {
             score,
             maxScore,
             tier: tier.title,
+            qualification,
           }),
         });
       } catch {

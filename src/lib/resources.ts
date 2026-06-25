@@ -197,6 +197,21 @@ const RESOURCES: Resource[] = [
     publishedAt: "2025-01-10T00:00:00.000Z",
     relatedInsightSlugs: [],
   },
+  {
+    id: "crm-maturity-guide",
+    title: "CRM Maturity & Selection Guide",
+    excerpt:
+      "A 16-page guide for teams deciding whether to fix their current CRM, switch platforms, or implement one for the first time — covering data hygiene, adoption patterns and a five-dimension maturity model.",
+    type: "Guide",
+    category: "CRM & Sales",
+    tags: ["CRM", "Maturity", "Selection", "Adoption"],
+    featured: false,
+    gated: true,
+    downloadUrl: null,
+    pageCount: 16,
+    publishedAt: "2025-06-01T00:00:00.000Z",
+    relatedInsightSlugs: ["why-crm-implementations-fail"],
+  },
 ];
 
 // ── Query functions ───────────────────────────────────────────────────────────

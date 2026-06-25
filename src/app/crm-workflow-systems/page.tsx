@@ -564,6 +564,15 @@ export default function CrmWorkflowSystemsPage() {
             </Reveal>
           ))}
         </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/knowledge/crm-maturity"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+          >
+            Try our interactive CRM maturity assessment
+          </Link>
+        </div>
       </Section>
 
       {/* 6 — CTA */}
