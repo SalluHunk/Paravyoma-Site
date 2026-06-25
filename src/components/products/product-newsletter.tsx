@@ -55,14 +55,22 @@ export function ProductNewsletter() {
       className="flex flex-col gap-3 sm:flex-row"
       aria-label="Product early access sign-up"
     >
+      <label htmlFor="product-newsletter-name" className="sr-only">
+        Your name
+      </label>
       <input
+        id="product-newsletter-name"
         type="text"
         placeholder="Your name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="h-11 flex-1 rounded-xl border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-brand/40"
       />
+      <label htmlFor="product-newsletter-email" className="sr-only">
+        Work email
+      </label>
       <input
+        id="product-newsletter-email"
         type="email"
         required
         placeholder="Work email"

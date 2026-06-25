@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -96,6 +97,7 @@ function NavDropdown({ item }: { item: NavItem }) {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -112,6 +114,16 @@ export function SiteHeader() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [open]);
+
+  // Close the mobile menu on Escape.
+  React.useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
@@ -137,19 +149,29 @@ export function SiteHeader() {
           className="hidden items-center gap-0.5 lg:flex"
           aria-label="Primary"
         >
-          {NAV.map((item) =>
-            item.children ? (
+          {NAV.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return item.children ? (
               <NavDropdown key={item.label} item={item} />
             ) : (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "rounded-full px-3.5 py-2.5 text-sm font-medium transition-colors",
+                  isActive
+                    ? "font-semibold text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
               >
                 {item.label}
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
@@ -166,7 +188,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-lg text-foreground"
+            className="inline-flex size-11 items-center justify-center rounded-lg text-foreground"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -208,7 +230,13 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-foreground hover:bg-surface"
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={cn(
+                    "block rounded-lg px-3 py-3 text-base font-medium hover:bg-surface",
+                    pathname === item.href
+                      ? "font-semibold text-brand"
+                      : "text-foreground"
+                  )}
                 >
                   {item.label}
                 </Link>

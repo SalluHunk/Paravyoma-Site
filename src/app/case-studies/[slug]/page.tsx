@@ -7,6 +7,7 @@ import {
   getAllSlugs,
 } from "@/lib/case-studies";
 import { CaseStudyLayout } from "@/components/case-studies/case-study-layout";
+import { ArticleSchema } from "@/components/shared/article-schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -48,5 +49,15 @@ export default async function CaseStudyPage({ params }: Props) {
 
   const related = getRelatedCaseStudies(slug);
 
-  return <CaseStudyLayout caseStudy={caseStudy} related={related} />;
+  return (
+    <>
+      <ArticleSchema
+        url={`${siteConfig.url}/case-studies/${slug}`}
+        headline={caseStudy.title}
+        description={caseStudy.tagline}
+        datePublished={caseStudy.publishedAt}
+      />
+      <CaseStudyLayout caseStudy={caseStudy} related={related} />
+    </>
+  );
 }

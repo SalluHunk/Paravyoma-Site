@@ -297,6 +297,15 @@ export default function AiAutomationPage() {
             </div>
           </Reveal>
         </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/knowledge/ai-automation"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+          >
+            Try our interactive automation readiness assessment
+          </Link>
+        </div>
       </Section>
 
       {/* Automation Categories */}

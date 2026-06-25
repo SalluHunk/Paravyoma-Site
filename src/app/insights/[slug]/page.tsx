@@ -7,6 +7,7 @@ import {
   getAllArticleSlugs,
 } from "@/lib/insights";
 import { ArticleLayout } from "@/components/insights/article-layout";
+import { ArticleSchema } from "@/components/shared/article-schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -43,5 +44,17 @@ export default async function InsightPage({ params }: Props) {
   if (!article) notFound();
 
   const related = getRelatedArticles(slug);
-  return <ArticleLayout article={article} related={related} />;
+  return (
+    <>
+      <ArticleSchema
+        url={`${siteConfig.url}/insights/${slug}`}
+        headline={article.title}
+        description={article.metaDescription}
+        datePublished={article.publishedAt}
+        dateModified={article.updatedAt}
+        authorName={article.author.name}
+      />
+      <ArticleLayout article={article} related={related} />
+    </>
+  );
 }

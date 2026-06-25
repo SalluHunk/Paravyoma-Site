@@ -18,7 +18,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1200px] px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <Logo />
+            <Logo size="lg" />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground text-pretty">
               A solutions and technology partner helping organizations turn
               operations, systems and digital presence into sustainable,
@@ -56,7 +56,13 @@ export function SiteFooter() {
           </p>
           <div className="flex items-center gap-6">
             <Link
-              href="/#contact"
+              href="/privacy"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/contact"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               Contact

@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${siteConfig.url}/temple-suite/devotee-growth-platform`,
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${siteConfig.url}/temple-solutions`,
       lastModified: staticLastModified,
       changeFrequency: "monthly",
@@ -76,6 +82,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${siteConfig.url}/knowledge/digital-transformation`,
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${siteConfig.url}/knowledge/ai-automation`,
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${siteConfig.url}/knowledge/temple-operations`,
+      lastModified: staticLastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
       url: `${siteConfig.url}/case-studies`,
       lastModified: staticLastModified,
       changeFrequency: "weekly",
@@ -106,6 +130,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: staticLastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${siteConfig.url}/privacy`,
+      lastModified: staticLastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

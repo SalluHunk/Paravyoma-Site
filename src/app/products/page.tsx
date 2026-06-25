@@ -88,6 +88,7 @@ const products = [
       "Paravyoma's flagship platform initiative for spiritual organizations: donation management, seva scheduling, volunteer coordination, events, inventory, book distribution, community engagement and trustee visibility in one purpose-built system.",
     capabilities: [
       "Donation, seva, and puja management",
+      "Devotee growth journeys, mentor assignment and leadership development",
       "Volunteer scheduling and event coordination",
       "Inventory, book distribution, analytics and community engagement",
     ],
@@ -237,7 +238,7 @@ export default function ProductsPage() {
           className="mx-auto"
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product, i) => {
             const badge = stageMeta[product.stage];
             return (

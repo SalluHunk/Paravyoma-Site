@@ -45,7 +45,11 @@ export function NewsletterSignup() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 flex gap-2">
+              <label htmlFor="insights-newsletter-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="insights-newsletter-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

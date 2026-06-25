@@ -31,6 +31,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
+import { FaqSchema } from "@/components/shared/faq-schema";
 import { testimonials } from "@/lib/trust";
 import { cn } from "@/lib/utils";
 
@@ -264,6 +265,7 @@ const faqs = [
 export default function DigitalTransformationPage() {
   return (
     <>
+      <FaqSchema faqs={faqs} />
       {/* 1 — Hero */}
       <PageHeader
         eyebrow="Digital Transformation"
@@ -345,6 +347,15 @@ export default function DigitalTransformationPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/knowledge/digital-transformation"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+          >
+            Try our interactive readiness assessment
+          </Link>
         </div>
       </Section>
 

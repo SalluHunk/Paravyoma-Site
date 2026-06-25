@@ -23,7 +23,7 @@ export const siteConfig = {
         { label: "Custom Applications", href: "/custom-applications" },
       ],
     },
-    { label: "Industries", href: "/#industries" },
+    { label: "Industries", href: "/industries" },
     { label: "Why Paravyoma", href: "/#why" },
     { label: "About", href: "/about" },
     {
@@ -42,6 +42,10 @@ export const siteConfig = {
       href: "/products",
       children: [
         { label: "Temple Suite", href: "/temple-suite" },
+        {
+          label: "Devotee Growth Platform",
+          href: "/temple-suite/devotee-growth-platform",
+        },
         { label: "Products Lab", href: "/products" },
       ],
     },
@@ -53,6 +57,10 @@ export const siteConfig = {
       { label: "Digital Transformation", href: "/digital-transformation" },
       { label: "CRM & Workflow Systems", href: "/crm-workflow-systems" },
       { label: "Temple Suite", href: "/temple-suite" },
+      {
+        label: "Devotee Growth Platform",
+        href: "/temple-suite/devotee-growth-platform",
+      },
       { label: "Temple Solutions", href: "/temple-solutions" },
       { label: "Custom Applications", href: "/custom-applications" },
     ],
@@ -65,7 +73,7 @@ export const siteConfig = {
     ],
     company: [
       { label: "Why Paravyoma", href: "/#why" },
-      { label: "Industries", href: "/#industries" },
+      { label: "Industries", href: "/industries" },
       { label: "Products", href: "/products" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },

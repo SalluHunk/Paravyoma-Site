@@ -25,6 +25,7 @@ import {
   ContactForm,
   type InquiryType,
 } from "@/components/sections/contact-form";
+import { FaqSchema } from "@/components/shared/faq-schema";
 import { cn } from "@/lib/utils";
 
 const inquiryCards = [
@@ -102,6 +103,7 @@ export function ContactPageClient({ initialInquiry }: ContactPageClientProps) {
 
   return (
     <>
+      <FaqSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <PageHeader
         eyebrow="Contact"
         title="Let's talk about what you're building"

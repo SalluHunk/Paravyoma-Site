@@ -4,6 +4,20 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      {
+        source: "/resources/case-studies",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/resources/insights",
+        destination: "/insights",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

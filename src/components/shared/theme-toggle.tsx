@@ -23,7 +23,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       title={isDark ? "Switch to Business Mode" : "Switch to Tech Mode"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "inline-flex flex-col items-center gap-0.5 rounded-lg border border-border bg-background px-2 py-1.5 text-foreground transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "inline-flex min-h-11 flex-col items-center justify-center gap-0.5 rounded-lg border border-border bg-background px-2 py-2 text-foreground transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
     >

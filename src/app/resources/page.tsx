@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { FeaturedResource } from "@/components/resources/featured-resource";
 import { ResourceGrid } from "@/components/resources/resource-grid";
 import { ResourcesInsightsStrip } from "@/components/resources/resources-insights-strip";
+import { FaqSchema } from "@/components/shared/faq-schema";
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -59,6 +60,9 @@ export default function ResourcesPage() {
 
   return (
     <>
+      <FaqSchema
+        faqs={hubFaqs.map((f) => ({ question: f.q, answer: f.a }))}
+      />
       {/* 1 — Hero */}
       <PageHeader
         eyebrow="Resources"

@@ -529,6 +529,15 @@ export default function TempleSolutionsPage() {
               have clarity, volunteers have ease, and devotees feel closer than
               ever. We&apos;re building toward that, one institution at a time.
             </p>
+
+            <div className="relative mt-8 text-center">
+              <Link
+                href="/knowledge/temple-operations"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+              >
+                Try our interactive temple readiness assessment
+              </Link>
+            </div>
           </div>
         </Reveal>
       </Section>
