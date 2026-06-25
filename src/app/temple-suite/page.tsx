@@ -40,7 +40,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Temple Suite",
   description:
-    "Temple Suite is Paravyoma's flagship platform initiative for spiritual organizations: donation management, seva scheduling, volunteer coordination, events, inventory, book distribution, community engagement and analytics in one purpose-built operating system.",
+    "Temple Suite is Paravyoma's flagship platform initiative for spiritual organizations: donation management, seva scheduling, volunteer coordination, events, inventory, book distribution, community engagement, devotee growth journeys and analytics in one purpose-built operating system.",
   alternates: { canonical: `${siteConfig.url}/temple-suite` },
   openGraph: {
     title: `Temple Suite - ${siteConfig.name}`,
@@ -106,6 +106,14 @@ const modules = [
     description:
       "Member profiles, announcements, reminders, program updates and segmented communication.",
     features: ["Member directory", "Segmented updates", "Reminder workflows"],
+  },
+  {
+    icon: HeartHandshake,
+    name: "Devotee Growth Platform",
+    tier: "Strategic growth",
+    description:
+      "Attract, register, engage, nurture, retain and develop devotees through a structured spiritual engagement journey.",
+    features: ["Visitor pathways", "Mentor assignment", "Leadership pipeline"],
   },
   {
     icon: BarChart3,
@@ -390,7 +398,7 @@ export default function TempleSuitePage() {
       <PageHeader
         eyebrow="Temple Suite"
         title="A temple operations platform built for spiritual organizations."
-        description="Temple Suite is Paravyoma's flagship platform initiative: a specialized operating system for donations, sevas, volunteers, events, inventory, books, community engagement and trustee visibility."
+        description="Temple Suite is Paravyoma's flagship platform initiative: a specialized operating system for donations, sevas, volunteers, events, inventory, books, community engagement, devotee growth journeys and trustee visibility."
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild variant="brand" size="lg">
@@ -454,10 +462,73 @@ export default function TempleSuitePage() {
         </div>
       </Section>
 
+      <Section id="devotee-growth-platform" surface>
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <Reveal>
+            <div>
+              <span className="eyebrow">Phase 3A module</span>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl">
+                Devotee Growth Platform turns community development into a
+                repeatable temple capability.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground text-pretty">
+                This module extends Temple Suite beyond administration. It
+                helps temples systematically attract, register, engage, nurture,
+                retain and develop devotees from first contact to seva and
+                leadership readiness.
+              </p>
+              <div className="mt-7">
+                <Button asChild variant="brand">
+                  <Link href="/temple-suite/devotee-growth-platform">
+                    Explore Devotee Growth Platform
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-lift">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  ["Outreach to registration", Users, "Capture real source, consent, event interest and first-visit context."],
+                  ["Mentor-led nurturing", HeartHandshake, "Assign care through language, availability and spiritual interest fit."],
+                  ["Courses and books", BookOpen, "Connect book distribution and course enrollment to the same journey."],
+                  ["Seva to leadership", Network, "Track volunteer growth, seva consistency and coordinator readiness."],
+                ].map(([title, Icon, body]) => {
+                  const GrowthIcon = Icon as React.ComponentType<{
+                    className?: string;
+                    "aria-hidden"?: "true";
+                  }>;
+                  return (
+                    <article
+                      key={title as string}
+                      className="rounded-2xl border border-border bg-background p-5"
+                    >
+                      <GrowthIcon
+                        className="size-5 text-brand"
+                        aria-hidden="true"
+                      />
+                      <h3 className="mt-4 font-display text-sm font-semibold tracking-tight text-foreground">
+                        {title as string}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                        {body as string}
+                      </p>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
       <Section id="modules" surface>
         <SectionHeading
           eyebrow="Product modules"
-          title="Eight modules, one temple operating system."
+          title="Nine modules, one temple operating system."
           description="The product hierarchy is intentionally practical: start with the core records, then connect the workflows that make daily service easier to coordinate."
           align="center"
           className="mx-auto"
