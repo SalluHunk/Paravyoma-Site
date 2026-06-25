@@ -29,6 +29,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { TempleMode } from "@/components/shared/temple-mode";
 import { Button } from "@/components/ui/button";
 import { OperationsSystemPreview } from "@/components/proof/operations-system-preview";
 import { TestimonialSpotlight } from "@/components/trust/testimonial-spotlight";
@@ -253,7 +254,7 @@ const whyPoints = [
 
 export default function TempleSolutionsPage() {
   return (
-    <>
+    <TempleMode>
       {/* 1 — Hero */}
       <PageHeader
         eyebrow="Temple Solutions"
@@ -599,6 +600,6 @@ export default function TempleSolutionsPage() {
           </Reveal>
         </div>
       </Section>
-    </>
+    </TempleMode>
   );
 }

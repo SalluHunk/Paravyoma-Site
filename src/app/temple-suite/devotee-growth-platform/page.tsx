@@ -29,6 +29,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { TempleMode } from "@/components/shared/temple-mode";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -402,7 +403,7 @@ function DevoteeGrowthPreview() {
 
 export default function DevoteeGrowthPlatformPage() {
   return (
-    <>
+    <TempleMode>
       <PageHeader
         eyebrow="Temple Suite module"
         title="Devotee Growth Platform for spiritual engagement and community development."
@@ -728,6 +729,6 @@ export default function DevoteeGrowthPlatformPage() {
           </Reveal>
         </div>
       </Section>
-    </>
+    </TempleMode>
   );
 }

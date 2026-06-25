@@ -34,6 +34,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { TempleMode, TempleIconGlow } from "@/components/shared/temple-mode";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -228,9 +229,11 @@ function TempleSuitePreview() {
       <div className="grid lg:grid-cols-[240px_1fr]">
         <aside className="bg-primary p-5 text-primary-foreground">
           <div className="flex items-center gap-3">
-            <span className="inline-flex size-10 items-center justify-center rounded-xl bg-brand text-brand-foreground">
-              <Landmark className="size-5" aria-hidden="true" />
-            </span>
+            <TempleIconGlow>
+              <span className="inline-flex size-10 items-center justify-center rounded-xl bg-brand text-brand-foreground">
+                <Landmark className="size-5" aria-hidden="true" />
+              </span>
+            </TempleIconGlow>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
                 Temple Suite
@@ -394,7 +397,7 @@ function TempleSuitePreview() {
 
 export default function TempleSuitePage() {
   return (
-    <>
+    <TempleMode>
       <PageHeader
         eyebrow="Temple Suite"
         title="A temple operations platform built for spiritual organizations."
@@ -813,6 +816,6 @@ export default function TempleSuitePage() {
           </Reveal>
         </div>
       </Section>
-    </>
+    </TempleMode>
   );
 }

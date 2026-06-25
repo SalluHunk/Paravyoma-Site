@@ -75,6 +75,10 @@ const config: Config = {
           "linear-gradient(to right, rgb(15 23 42 / 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgb(15 23 42 / 0.04) 1px, transparent 1px)",
         "radial-fade":
           "radial-gradient(ellipse 80% 60% at 50% -10%, hsl(var(--brand) / 0.10), transparent 70%)",
+        /* Temple Mode (Phase 6): a warm geometric lattice, abstract and
+           textile-inspired — not iconographic, no religious imagery. */
+        "temple-weave":
+          "repeating-linear-gradient(45deg, hsl(var(--brand) / 0.06) 0px, hsl(var(--brand) / 0.06) 1px, transparent 1px, transparent 14px), repeating-linear-gradient(-45deg, hsl(var(--brand) / 0.06) 0px, hsl(var(--brand) / 0.06) 1px, transparent 1px, transparent 14px)",
       },
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -96,12 +100,19 @@ const config: Config = {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        /* Temple Mode (Phase 6): a slow, soft glow pulse for icon badges —
+           evokes quiet devotional light, not a literal flame or symbol. */
+        "temple-glow": {
+          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.06)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
         "fade-in": "fade-in 0.8s ease-out both",
+        "temple-glow": "temple-glow 3.2s ease-in-out infinite",
       },
     },
   },

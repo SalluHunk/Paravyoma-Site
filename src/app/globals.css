@@ -82,6 +82,38 @@
 
     color-scheme: dark;
   }
+
+  /* ── Temple Mode (Phase 6) ───────────────────────────────────────────
+     A warm overlay applied to temple-related pages only, layered on top
+     of whichever base mode (light/dark) is active. Shifts the accent and
+     surface tokens warmer via CSS custom property cascade — every
+     existing bg-brand / text-brand / bg-radial-fade usage inherits it
+     automatically. No deity, guru or religious artwork — warmth comes
+     from color and texture alone.
+  ── */
+  .temple-mode {
+    --brand: 26 72% 46%;               /* warm terracotta-amber */
+    --brand-foreground: 30 40% 98%;
+    --surface: 30 35% 97%;             /* warm cream instead of cool gray */
+    --ring: 26 72% 46%;
+  }
+
+  .dark .temple-mode {
+    --background: 22 38% 7%;           /* warm near-black instead of cool */
+    --foreground: 30 30% 96%;
+    --surface: 22 32% 10%;
+    --card: 22 30% 12%;
+    --card-foreground: 30 30% 96%;
+    --brand: 38 78% 55%;               /* warm gold instead of electric sky */
+    --brand-foreground: 20 40% 10%;
+    --muted: 22 25% 16%;
+    --muted-foreground: 30 18% 70%;
+    --accent: 22 25% 16%;
+    --accent-foreground: 30 30% 96%;
+    --border: 22 22% 18%;
+    --input: 22 22% 18%;
+    --ring: 38 78% 55%;
+  }
 }
 
 @layer base {

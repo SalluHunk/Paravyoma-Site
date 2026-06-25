@@ -6,6 +6,7 @@ import { getResourceById, getResourcesByCategory } from "@/lib/resources";
 import { getAllArticles } from "@/lib/insights";
 import { getAllCaseStudies } from "@/lib/case-studies";
 import { KnowledgeCenterLayout } from "@/components/knowledge/knowledge-center-layout";
+import { TempleMode } from "@/components/shared/temple-mode";
 
 const config = getKnowledgeCenter("temple-operations");
 
@@ -35,12 +36,14 @@ export default function TempleOperationsKnowledgeCenterPage() {
   );
 
   return (
-    <KnowledgeCenterLayout
-      config={config}
-      flagshipGuide={flagshipGuide}
-      spokeResources={spokeResources}
-      articles={articles}
-      caseStudies={caseStudies}
-    />
+    <TempleMode>
+      <KnowledgeCenterLayout
+        config={config}
+        flagshipGuide={flagshipGuide}
+        spokeResources={spokeResources}
+        articles={articles}
+        caseStudies={caseStudies}
+      />
+    </TempleMode>
   );
 }
