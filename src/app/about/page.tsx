@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Shield,
   Target,
@@ -6,6 +7,10 @@ import {
   Handshake,
   CheckCircle2,
   Quote,
+  Building2,
+  Sparkles,
+  Landmark,
+  Rocket,
 } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
@@ -73,6 +78,43 @@ export default function AboutPage() {
         title="Technology that earns its place in your business"
         description="We are a solutions and technology partner. Our work is measured not by what we build, but by what improves after we build it."
       />
+
+      {/* Why we exist */}
+      <Section id="why-we-exist">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <Reveal>
+              <span className="eyebrow">Why we exist</span>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl">
+                Most technology spend produces software. Very little of it
+                produces outcomes.
+              </h2>
+              <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Paravyoma did not start as a business plan. It started as a
+                  pattern that kept repeating: organisations of every size —
+                  enterprises, growing businesses, and even temples and
+                  community institutions — investing in technology and
+                  walking away with a working system that still left the real
+                  problem untouched.
+                </p>
+                <p>
+                  The deliverable was technically sound. The business outcome
+                  it was supposed to produce never arrived. That gap is rarely
+                  a coding failure — it is a failure to connect what gets
+                  built to what the organisation actually needs to change.
+                </p>
+                <p>
+                  We built Paravyoma to close that gap on purpose, on every
+                  engagement, whether the client is a Fortune-scale enterprise
+                  rolling out AI-assisted operations or a temple trying to
+                  modernise how it serves its devotees.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
 
       {/* Mission & Vision */}
       <Section id="mission-vision" surface>
@@ -255,10 +297,51 @@ export default function AboutPage() {
       {/* Founder message */}
       <Section id="founder">
         <Container>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl">
             <Reveal>
-              <span className="eyebrow">From the founder</span>
-              <div className="relative mt-8 rounded-2xl border border-brand/20 bg-card p-8 shadow-soft lg:p-12">
+              <div className="mx-auto mb-10 max-w-2xl text-center">
+                <span className="eyebrow justify-center">
+                  From the founder
+                </span>
+                <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl">
+                  The person behind the pattern
+                </h2>
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="grid gap-10 sm:grid-cols-[200px_1fr] sm:items-start">
+                <div className="mx-auto w-40 shrink-0 overflow-hidden rounded-2xl border border-border shadow-soft sm:mx-0 sm:w-full">
+                  <Image
+                    src="/sid-ceo-bw.png"
+                    alt="Siddharth Gaur, Founder & CEO of Paravyoma Technologies"
+                    width={1024}
+                    height={1536}
+                    className="h-auto w-full object-cover"
+                    priority
+                  />
+                </div>
+                <div className="space-y-5 text-base leading-relaxed text-muted-foreground text-pretty">
+                  <p>
+                    Before Paravyoma, Siddharth spent his career on the inside
+                    of exactly the gap this company now exists to close —
+                    watching enterprise technology programs ship on schedule
+                    and still fail to move the metrics they were funded to
+                    move. The software was rarely the problem. The
+                    translation between business intent and technical
+                    execution was.
+                  </p>
+                  <p>
+                    Paravyoma is his answer to that gap: a firm built to stay
+                    accountable for outcomes, not just delivery — one where
+                    senior judgement sits on every engagement, AI accelerates
+                    the work without replacing the thinking, and the
+                    relationship does not end at go-live.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={140}>
+              <div className="relative mt-10 rounded-2xl border border-brand/20 bg-card p-8 shadow-soft lg:p-12">
                 <Quote
                   className="absolute right-8 top-8 size-8 text-brand/20 lg:right-12 lg:top-12"
                   aria-hidden="true"
@@ -298,6 +381,66 @@ export default function AboutPage() {
                 </footer>
               </div>
             </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Long-term ambition */}
+      <Section id="ambition" surface>
+        <Container>
+          <Reveal>
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <span className="eyebrow justify-center">
+                Long-term ambition
+              </span>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground text-balance sm:text-4xl">
+                Where we are headed
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground text-pretty">
+                Paravyoma is not building toward being a larger version of a
+                conventional IT services firm. We are building toward being
+                the partner organisations turn to when technology decisions
+                are too important to delegate to generic execution.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
+            {[
+              {
+                icon: Building2,
+                heading: "Enterprise technology, done with senior judgement",
+                body: "We are scaling our capacity without scaling away the senior involvement that makes the work trustworthy — deepening our enterprise practice rather than diluting it.",
+              },
+              {
+                icon: Sparkles,
+                heading: "AI-assisted execution as the default, not the pitch",
+                body: "AI already accelerates research, build, and quality assurance across our engagements. Our ambition is for that acceleration to keep compounding, always under human accountability.",
+              },
+              {
+                icon: Landmark,
+                heading: "Temple initiatives, taken as seriously as enterprise work",
+                body: "Our work with temples and community institutions is not a side project — it is proof that operational excellence belongs everywhere, not only where the budgets are largest.",
+              },
+              {
+                icon: Rocket,
+                heading: "Product innovation born from real engagements",
+                body: "Every product we build in our Innovation Lab starts as a pattern we solved for a client first. We intend to keep turning hard-won operational knowledge into reusable software.",
+              },
+            ].map((item, i) => (
+              <Reveal key={item.heading} delay={i * 80}>
+                <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-soft">
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-xl bg-brand/10">
+                    <item.icon className="size-5 text-brand" />
+                  </div>
+                  <h3 className="mb-2 font-semibold text-foreground">
+                    {item.heading}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </Section>
