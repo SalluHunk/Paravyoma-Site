@@ -92,6 +92,7 @@ export default function RootLayout({
           <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
+          <Analytics />
         </ThemeProvider>
         <Analytics />
       </body>
